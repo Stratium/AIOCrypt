@@ -32,27 +32,23 @@ def get_user_input():
 
 # Main
 def main():
-    user_input = ''
+    userInput = ''
     show_title_bar()
     os.system('pause')
 
     # Loop through console UI
-    while user_input != 'q':
-        user_input = get_user_input()
+    while userInput != 'q':
+        userInput = get_user_input()
 
         # Pass user choice to correct script
-        if user_input == '1':
+        if userInput == '1':
             textEncryption.main()
-            break
-        elif user_input == '2':
+        elif userInput == '2':
             fileEncryption.main()
-            break
-        elif user_input == '3':
+        elif userInput == '3':
             textDecryption.main()
-            break
-        elif user_input == '4':
+        elif userInput == '4':
             fileDecryption.main()
-            break
 
 # Initialisation
 if __name__ == '__main__':
