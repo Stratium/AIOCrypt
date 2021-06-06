@@ -1,0 +1,2 @@
+def main():
+    print("TEXT DECRYPTION LOADED SUCCESSFULLY")

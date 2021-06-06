@@ -1,0 +1,2 @@
+def main():
+    print("TEXT ENCRYPTION LOADED SUCCESSFULLY")

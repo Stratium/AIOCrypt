@@ -4,6 +4,10 @@
 
 # Imports
 import os
+import textEncryption
+import fileEncryption
+import textDecryption
+import fileDecryption
 
 # Functions
 def show_title_bar():
@@ -29,22 +33,22 @@ def get_user_input():
 def text_encryption():
     os.system('cls')
     print("Text encryption selected\n")
-    os.system('pause')
+    textEncryption.main()
 
 def file_encryption():
     os.system('cls')
     print("File encryption selected\n")
-    os.system('pause')
+    fileEncryption.main()
 
 def text_decryption():
     os.system('cls')
     print("Text decryption selected\n")
-    os.system('pause')
+    textDecryption.main()
 
 def file_decryption():
     os.system('cls')
     print("File decryption selected\n")
-    os.system('pause')
+    fileDecryption.main()
 
 def main():
     user_input = ''
@@ -58,12 +62,16 @@ def main():
         # Display the user's choice
         if user_input == '1':
             text_encryption()
+            break
         elif user_input == '2':
             file_encryption()
+            break
         elif user_input == '3':
             text_decryption()
+            break
         elif user_input == '4':
             file_decryption()
+            break
 
 # Initialisation
 if __name__ == '__main__':
