@@ -30,30 +30,27 @@ def get_user_input():
 
     return input("\nMake a selection: ")
 
+# Main
 def main():
     user_input = ''
     show_title_bar()
     os.system('pause')
 
-    # Loop through the user options
+    # Loop through console UI
     while user_input != 'q':
         user_input = get_user_input()
 
-        # Display the user's choice
+        # Pass user choice to correct script
         if user_input == '1':
-            os.system('cls')
             textEncryption.main()
             break
         elif user_input == '2':
-            os.system('cls')
             fileEncryption.main()
             break
         elif user_input == '3':
-            os.system('cls')
             textDecryption.main()
             break
         elif user_input == '4':
-            os.system('cls')
             fileDecryption.main()
             break
 
