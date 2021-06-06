@@ -30,26 +30,6 @@ def get_user_input():
 
     return input("\nMake a selection: ")
 
-def text_encryption():
-    os.system('cls')
-    print("Text encryption selected\n")
-    textEncryption.main()
-
-def file_encryption():
-    os.system('cls')
-    print("File encryption selected\n")
-    fileEncryption.main()
-
-def text_decryption():
-    os.system('cls')
-    print("Text decryption selected\n")
-    textDecryption.main()
-
-def file_decryption():
-    os.system('cls')
-    print("File decryption selected\n")
-    fileDecryption.main()
-
 def main():
     user_input = ''
     show_title_bar()
@@ -61,16 +41,20 @@ def main():
 
         # Display the user's choice
         if user_input == '1':
-            text_encryption()
+            os.system('cls')
+            textEncryption.main()
             break
         elif user_input == '2':
-            file_encryption()
+            os.system('cls')
+            fileEncryption.main()
             break
         elif user_input == '3':
-            text_decryption()
+            os.system('cls')
+            textDecryption.main()
             break
         elif user_input == '4':
-            file_decryption()
+            os.system('cls')
+            fileDecryption.main()
             break
 
 # Initialisation
