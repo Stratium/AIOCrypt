@@ -32,7 +32,7 @@ def get_cipher_selection():
     os.system('cls')
     print("Select encryption method:")
     print("\n[1] Caeser Cipher")
-    print("\n[q] Return to main menu")
+    print("\n[q] Return to previous menu")
 
     return input("\nMake a selection: ")
 
