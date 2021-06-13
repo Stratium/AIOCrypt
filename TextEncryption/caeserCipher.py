@@ -50,12 +50,28 @@ def explainCipher():
 def encryptText(textToEncrypt, key):
     os.system('cls')
     print("Encrypting your text...")
-    # TODO - Add encryption routine
+    # TODO - This is from https://www.tutorialspoint.com/cryptography_with_python/cryptography_with_python_caesar_cipher.htm
+    # but I would really like to make my own. I could make an array with a length of 25, allocate each to a letter and then
+    # add array position + key for each letter to get the new cipher.
+
+    encryptedText = ''
+    # Loop through each letter
+    for i in range(len(textToEncrypt)):
+        currentLetter = textToEncrypt[i]
+
+        # Encrypt uppercase characters
+        if (currentLetter.isupper()):
+            encryptedText += chr((ord(currentLetter) + key - 65) % 26 + 65)
+        # Encrypt lowercase characters
+        else:
+            encryptedText += chr((ord(currentLetter) + key - 97) % 26 + 97)
+    
+    # Adds a fake delay for user assurance
     time.sleep(3)
     os.system('cls')
     print("Completed! Your text has been encrypted using a key of " + str(key) + ".")
     print("\nOriginal text: " + textToEncrypt)
-    print("\nNew text: " + "ENCRYPTED_TEXT" + "\n")
+    print("\nNew text: " + encryptedText + "\n")
     # TODO - Print text
     # TODO - Print to text file
     os.system('pause')
