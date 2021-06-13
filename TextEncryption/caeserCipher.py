@@ -25,10 +25,21 @@ def get_user_input():
     return input("\nMake a selection: ")
 
 def selectKey():
+    key = ''
+    validKey = False
+
     os.system('cls')
     print('Enter a number between 1 and 25 to act as a key')
 
-    return input("Key: ")
+    while validKey == False:
+        try:
+            key = int(input("Key: "))
+            assert 1 <= key <= 25
+        except:
+            print("\nPlease enter a whole number between 1 and 25")
+        else:
+            validKey == True
+            return key
 
 def explainCipher():
     os.system('cls')
@@ -41,7 +52,10 @@ def encryptText(textToEncrypt, key):
     print("Encrypting your text...")
     # TODO - Add encryption routine
     time.sleep(3)
-    print("Completed! Your text has been encrypted using a key of " + key + ".")
+    os.system('cls')
+    print("Completed! Your text has been encrypted using a key of " + str(key) + ".")
+    print("\nOriginal text: " + textToEncrypt)
+    print("\nNew text: " + "ENCRYPTED_TEXT" + "\n")
     # TODO - Print text
     # TODO - Print to text file
     os.system('pause')
@@ -51,19 +65,15 @@ def encryptText(textToEncrypt, key):
 def main(textToEncrypt):
     userInput = ''
     key = ''
-    validKey = False
 
     while userInput != 'q':
         show_caeser_title()
         userInput = get_user_input()
 
         if userInput == '1':
-            while validKey == False:
-                key = selectKey()
-
-                if key == 'numerical value': # TODO
-                    validKey = True
-                    encryptText(textToEncrypt, key)
+            key = selectKey()
+            print(key)
+            encryptText(textToEncrypt, key)
         
         elif userInput == '2':
             explainCipher()
