@@ -14,39 +14,53 @@ def show_text_title():
     print("*****         AIOCrypt - Text Encryption         *****")
     print("******************************************************")
     print("\nThis script allows you to encrypt a text string using a")
-    print("variety of different encryption methods.")
+    print("variety of different encryption methods.\n")
 
 def get_text_to_encrypt():
-    os.system('cls')
     print("Please enter the text string you wish to encrypt.")
     print("Both alphanumeric characters and symbols are permitted.")
 
     return input("\nEnter text: ")
 
+def get_user_confirmation(textToEncrypt):
+    os.system('cls')
+    print("You have entered the following string:")
+    print("\n" + textToEncrypt)
+    return input("\nIs this correct? [y/n]: ")
+
 def get_cipher_selection():
     os.system('cls')
     print("Select encryption method:")
     print("\n[1] Caeser Cipher")
-    print("\n[b] Return to text input")
     print("\n[q] Return to main menu")
 
     return input("\nMake a selection: ")
+
 
 # Main
 def main():
     userSelection = ''
     textToEncrypt = ''
-    doLoop = 'true'
+    confirmText = 'n'
+    doLoop = True
 
-    textToEncrypt = get_text_to_encrypt()
+    show_text_title()
 
-    while doLoop != 'false':
+    while confirmText != 'y':
+        if confirmText == 'n':
+            textToEncrypt = get_text_to_encrypt()
+            os.system('cls')
+            confirmText = get_user_confirmation(textToEncrypt)
+            os.system('cls')
+        else:
+            confirmText = get_user_confirmation(textToEncrypt)
+            os.system('cls')
+
+    while doLoop == True:
         userSelection = get_cipher_selection()
 
         # Pass user choice to correct script
         if userSelection == '1':
             caeserCipher.main(textToEncrypt)
-        elif userSelection == 'b':
-            textToEncrypt = get_text_to_encrypt()
         elif userSelection == 'q':
             break              
